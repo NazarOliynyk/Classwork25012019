@@ -1,0 +1,51 @@
+.color{
+  color: antiquewhite;
+}
+
+.error{
+  background: red;
+}
+
+.ok{
+  background: aqua;
+}
+
+form{
+  background: lightcoral;
+  height: 150px;
+  border: 2px solid black;
+}
+input{
+  background: aqua;
+  color: red;
+  font-family: "Bookman Old Style";
+  font-size: large;
+  border: 3px solid purple;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+div{
+  background: darksalmon;
+  color: indigo;
+  border: 2px solid black;
+  margin-top: 20px;
+  height: 75px;
+  font-size: smaller;
+}
+p{
+  color: darkblue;
+  font-size: smaller;
+}
+button{
+  margin-left: 15px;
+}
+
+.warningFont{
+  color: red;
+  font-size: x-large;
+  text-align: center;
+  height: 60%;
+  background: bisque;
+  width: 70%;
+  margin-left: 15%;
+}

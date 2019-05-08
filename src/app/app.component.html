@@ -1,0 +1,69 @@
+<!--<form #form='ngForm'>-->
+  <!--<input type="text"-->
+         <!--[ngStyle]="{border: nameRef.invalid&&nameRef.dirty?-->
+         <!--'1px solid red': '1px solid green'}"-->
+         <!--ngModel-->
+         <!--#nameRef = 'ngModel'-->
+         <!--required name="name">-->
+  <!--&lt;!&ndash;printing wrong email disables the button&ndash;&gt;-->
+  <!--<input type="text" ngModel name="email" email="">-->
+  <!--&lt;!&ndash; makes a button inactive till the moment when something is inserted &ndash;&gt;-->
+  <!--<button (click)="sendForm(form)"  >Send</button>-->
+<!--</form>-->
+
+<form *ngIf="showLog" #formLogin='ngForm'>
+  <input  [(ngModel)]="formLoginObj.name" type="text"
+          ngModel
+          #nameRef = 'ngModel'
+          name="name" placeholder="name">
+  <input [(ngModel)]="formLoginObj.password" type="text"
+         ngModel
+         #passwordRef = 'ngModel'
+         name="password" placeholder="password">
+  <button (click)="printLogination(formLogin)" type="button">Log In</button>
+</form>
+<button (click)="showTheFormLogin()">Show Logination form</button>
+
+
+<form *ngIf="showRegistration" #formRegistration='ngForm'>
+  <input  [(ngModel)]="formRegistrObj.name" type="text"
+          [ngStyle]="{border: nameRef.invalid&&nameRef.dirty?
+          '3px solid red': '3px solid green'}"
+          ngModel
+          #nameRef = 'ngModel'
+          required name="name" placeholder="name">
+  <input [(ngModel)]="formRegistrObj.password" type="text"
+         [ngStyle]="{border: passwordRef.invalid&&passwordRef.dirty?
+          '3px solid red': '3px solid green'}"
+         ngModel
+         #passwordRef = 'ngModel'
+         required name="password" placeholder="password">
+  <input [(ngModel)]="formRegistrObj.email" type="email"
+         [ngStyle]="{border: emailRef.invalid&&emailRef.dirty?
+          '3px solid red': '3px solid green'}"
+         ngModel
+         #emailRef = 'ngModel'
+         required name="email" email placeholder="email">
+  <button [disabled]="formRegistration.invalid" (click)="printRegistration(formRegistration)" type="button">Sign In</button>
+</form>
+<button (click)="showTheFormRegistration()">Show Registration form</button>
+
+<div *ngIf="showResultLog">
+  <p>You have inserted data:</p>
+   name- {{formLoginObj.name}},
+   password - {{formLoginObj.password}}.
+</div>
+
+<div *ngIf="showEmptyName">
+  <div class="warningFont"> INSERT the NAME!!</div>
+</div>
+<div *ngIf="showEmptyPass">
+  <div class="warningFont"> INSERT the PASSWORD!!</div>
+</div>
+
+<div *ngIf="showResultRegistration">
+  <p>You have inserted data:</p>
+   name- {{formRegistrObj.name}},
+   password - {{formRegistrObj.password}},
+   email - {{formRegistrObj.email}},
+</div>
